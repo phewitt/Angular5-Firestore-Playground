@@ -1,9 +1,8 @@
-<div *ngIf="afAuthService.afAuth.authState | async as user; else showLogin">
-  <h1>Hello {{ user.displayName }}!</h1>
-  <button (click)="logout()">Logout</button>
+<div *ngIf="isLoggedIn">
+  <p class="navbar-text navbar-right">Logged In: {{user_displayName}} ({{user_email}})
+    <p>
 </div>
-<ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="login()">Login with Google</button>
-</ng-template>
+<div *ngIf="!isLoggedIn">
+  <p class="navbar-text navbar-right">Logged Out</p>
+</div>
 <router-outlet></router-outlet>
