@@ -1,8 +1,8 @@
-<div *ngIf="user">
+<div *ngIf="afAuthService.user">
   <p>Logged In: {{user.displayName}} ({{user.email}})
     <p>
 </div>
-<div *ngIf="!user">
+<div *ngIf="!afAuthService">
   <p>Logged Out</p>
 </div>
 <router-outlet></router-outlet>

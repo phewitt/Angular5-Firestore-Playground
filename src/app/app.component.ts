@@ -10,16 +10,8 @@ import { AfAuthService } from "./services/af-auth.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  user: firebase.User;
+
   constructor(public afAuthService: AfAuthService, private router: Router) {
-    this.afAuthService.user.subscribe(user => {
-      if (user) {
-        this.user = user;
-        this.router.navigate([""]);
-      } else {
-       this.user = user;
-        this.router.navigate(["login"]);
-      }
-    });
+    
   }
 }
