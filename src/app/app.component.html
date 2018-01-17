@@ -1,8 +1,8 @@
-<div *ngIf="isLoggedIn">
-  <p class="navbar-text navbar-right">Logged In: {{user_displayName}} ({{user_email}})
+<div *ngIf="user">
+  <p>Logged In: {{user.displayName}} ({{user.email}})
     <p>
 </div>
-<div *ngIf="!isLoggedIn">
-  <p class="navbar-text navbar-right">Logged Out</p>
+<div *ngIf="!user">
+  <p>Logged Out</p>
 </div>
 <router-outlet></router-outlet>
