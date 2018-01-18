@@ -1,2 +1,13 @@
-<H1 style="background-color:aqua;">-------------------------------NAVBAR----------------------------</H1>
+<mat-toolbar color="primary" *ngIf="afAuthService.afAuth.authState | async as user; else showLogin">
+  <p>Hello {{ user.displayName }}!</p>
+  <div class="spacer"></div>
+  <button mat-raised-button color="accent" (click)="afAuthService.logout()">Logout</button>
+</mat-toolbar>
+<ng-template #showLogin>
+  <mat-toolbar color="primary">
+    <p>Please login.</p>
+    <div class="spacer"></div>
+    <button mat-raised-button color="accent" (click)="afAuthService.loginWithGoogle()">Login with Google</button>
+  </mat-toolbar>
+</ng-template>
 <router-outlet></router-outlet>

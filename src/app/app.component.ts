@@ -10,8 +10,8 @@ import { AfAuthService } from "./services/af-auth.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-
   constructor(public afAuthService: AfAuthService, private router: Router) {
-    
+    console.log(afAuthService.afAuth.authState);
   }
+  go() {}
 }
