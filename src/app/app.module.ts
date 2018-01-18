@@ -15,13 +15,15 @@ import { AppComponent } from "./app.component";
 import { ItemListComponent } from "./components/item-list/item-list.component";
 import { LoginPageComponent } from "./components/login-page/login-page.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
+import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemListComponent,
     LoginPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
