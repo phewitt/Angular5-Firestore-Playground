@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
+import {MatListModule} from '@angular/material/list';
+
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
@@ -40,6 +42,7 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
+    MatListModule,
     FormsModule
   ],
   providers: [AuthService, AuthGuardService],
