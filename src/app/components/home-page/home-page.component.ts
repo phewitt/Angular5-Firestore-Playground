@@ -7,7 +7,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument
 } from "angularfire2/firestore";
-import * as firebase from 'firebase/app';
+import * as firebase from "firebase/app";
 
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
@@ -39,8 +39,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
-   ngOnInit() {
-    this.authService.user.subscribe(user =>{
+  ngOnInit() {
+    this.authService.user.subscribe(user => {
       this.user = user;
       this.itemsCollectionRef = this.afs.collection("items", ref => {
         console.log(ref);
@@ -48,7 +48,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
           .orderBy("dateAdded", "desc")
           .where("userID", "==", this.user.uid);
       });
-  
+
       this.items = this.itemsCollectionRef.snapshotChanges().map(actions => {
         return actions.map(action => {
           const data = action.payload.doc.data() as Item;
@@ -57,12 +57,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
         });
       });
     });
-
   }
 
-  ngOnDestroy() {
-  
-  }
+  ngOnDestroy() {}
 
   get timestamp() {
     return firebase.firestore.FieldValue.serverTimestamp();
@@ -79,6 +76,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
     if (item.title && item.content) {
       this.itemsCollectionRef.add(item);
     }
+    this.itemTitle = "";
+    this.itemContent = "";
   }
 
   deleteItem(itemId: string) {

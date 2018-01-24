@@ -4,8 +4,8 @@
     <p>You should only be able to see that page when you're logged in!</p>
 
     <div class="form-inline justify-content-center">
-      <input placeholder="Title" [(ngModel)]="itemTitle" class="form-control">
-      <input placeholder="Content" [(ngModel)]="itemContent" class="form-control">
+      <input placeholder="Title" [(ngModel)]="itemTitle" (keyup.enter)="addItem()" class="form-control">
+      <input placeholder="Content" [(ngModel)]="itemContent" (keyup.enter)="addItem()" class="form-control">
       <button class="btn btn-success" (click)="addItem()">Add</button>
     </div>
 
@@ -13,11 +13,11 @@
 
     <ul *ngFor="let item of items | async" class="list-group">
       <li *ngIf="item.title && item.content" class="list-group-item d-flex justify-content-between">
-        <div>
+        <div class="justify-content-left">
           <h3>{{item.title}}</h3>
           <p>
-              {{item.content}}
-            </p>
+            {{item.content}}
+          </p>
         </div>
         <button class="btn btn-danger" (click)="deleteItem(item.id)">X</button>
       </li>
