@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top justify-content-between">
+  <a routerLink="/home" class="navbar-brand" href="#">ListYoStuff</a>
+  <div *ngIf="auth.user | async; then authenticated else guest">
+  </div>
+</nav>
+
+<ng-template #authenticated>
+  <button type="button" class="btn btn-primary" (click)="auth.signOut()">Logout</button>
+</ng-template>
+
+<ng-template #guest>
+  <button type="button" class="btn btn-primary" (click)="auth.googleLogin()">Login with Google</button>
+</ng-template>
+
+>
