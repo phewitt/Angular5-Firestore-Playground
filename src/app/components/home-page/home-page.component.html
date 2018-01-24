@@ -1,24 +1,27 @@
-<h1>Welcome</h1>
-<p>You should only be able to see that page when you're logged in!</p>
-<table cellspacing="5">
-  <tr>
-    <td>
-      <div>
-        <input placeholder="Title" [(ngModel)]="itemTitle">
-      </div>
-    </td>
-    <td>
-      <div>
-        <input  placeholder="Content" [(ngModel)]="itemContent">
-      </div>
-    </td>
-    <td>
-      <button  (click)="addItem()">Add</button>
-    </td>
-  </tr>
-</table>
-<ul *ngFor="let item of items | async">
-  <li *ngIf="item.title && item.content">
-    <b>{{item.title}}</b> : {{item.content}} <button (click)="deleteItem(item.id)" >X</button>
-  </li>
-</ul>
+<div class="row">
+  <div class="col-sm">
+    <h1>Welcome</h1>
+    <p>You should only be able to see that page when you're logged in!</p>
+
+    <div class="form-inline justify-content-center">
+      <input placeholder="Title" [(ngModel)]="itemTitle" class="form-control">
+      <input placeholder="Content" [(ngModel)]="itemContent" class="form-control">
+      <button class="btn btn-success" (click)="addItem()">Add</button>
+    </div>
+
+
+
+    <ul *ngFor="let item of items | async" class="list-group">
+      <li *ngIf="item.title && item.content" class="list-group-item d-flex justify-content-between">
+        <div>
+          <h3>{{item.title}}</h3>
+          <p>
+            {{item.content}}
+          </p>
+        </div>
+        <button class="btn btn-danger" (click)="deleteItem(item.id)">X</button>
+      </li>
+
+    </ul>
+  </div>
+</div>

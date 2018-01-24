@@ -1,3 +1,7 @@
-.mat-list-item {
-  font-size: 36px;
+.list-group{
+  margin-top: 10px;
+}
+
+input{
+  margin: 0.1em;
 }

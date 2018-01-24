@@ -1,17 +1,6 @@
 <app-app-navbar></app-app-navbar>
-<div *ngIf="auth.user | async; then authenticated else guest">
-
+<div class="container">
+  <div class="starter-template">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-<ng-template #authenticated>
-    <p *ngIf="auth.user | async as user" >Hello, {{ user.displayName }}!</p>
-    <div class="spacer"></div>
-    <button  (click)="auth.signOut()">Logout</button>
-</ng-template>
-
-<ng-template #guest>
-    <p>Hello Guest. Please login to get started!</p>
-    <div class="spacer"></div>
-    <button mat-raised-button color="accent" (click)="auth.googleLogin()">Login with Google</button>
-</ng-template>
-<router-outlet></router-outlet>
