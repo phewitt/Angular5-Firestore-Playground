@@ -12,14 +12,18 @@
 
 
     <ul *ngFor="let item of items | async" class="list-group">
-      <li *ngIf="item.title && item.content" class="list-group-item d-flex justify-content-between">
-        <div class="justify-content-left">
-          <h3>{{item.title}}</h3>
-          <p>
-            {{item.content}}
-          </p>
+      <li *ngIf="item.title && item.content" class="list-group-item">
+        <div class="container wrap">
+          <div>
+            <h3 class="d-inline justify-content-center">{{item.title}}</h3>
+            <button class="btn btn-danger justify-content-center deletebtn d-inline" (click)="deleteItem(item.id)">Delete</button>
+          </div>
+          <div>
+            <p class="content">
+              {{item.content}}
+            </p>
+          </div>
         </div>
-        <button class="btn btn-danger" (click)="deleteItem(item.id)">X</button>
       </li>
 
     </ul>
