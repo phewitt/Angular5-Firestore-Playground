@@ -7,6 +7,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument
 } from "angularfire2/firestore";
+import * as firebase from 'firebase/app';
 
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
@@ -16,6 +17,7 @@ export interface Item {
   content: string;
   id?: any;
   userID?: any;
+  dateAdded?: firebase.firestore.FieldValue;
 }
 
 @Component({
@@ -41,8 +43,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.authService.user.subscribe(user =>{
       this.user = user;
       this.itemsCollectionRef = this.afs.collection("items", ref => {
+        console.log(ref);
         return ref
-          .orderBy("title")
+          .orderBy("dateAdded", "desc")
           .where("userID", "==", this.user.uid);
       });
   
@@ -54,17 +57,24 @@ export class HomePageComponent implements OnInit, OnDestroy {
         });
       });
     });
+
   }
 
   ngOnDestroy() {
   
   }
 
+  get timestamp() {
+    return firebase.firestore.FieldValue.serverTimestamp();
+  }
+
   addItem() {
+    const ts = this.timestamp;
     let item = {
       title: this.itemTitle ? this.itemTitle : "",
       content: this.itemContent ? this.itemContent : "",
-      userID: this.user.uid
+      userID: this.user.uid,
+      dateAdded: ts
     };
     if (item.title && item.content) {
       this.itemsCollectionRef.add(item);
