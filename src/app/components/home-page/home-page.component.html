@@ -3,22 +3,22 @@
 <table cellspacing="5">
   <tr>
     <td>
-      <mat-form-field>
-        <input matInput placeholder="Title" [(ngModel)]="itemTitle">
-      </mat-form-field>
+      <div>
+        <input placeholder="Title" [(ngModel)]="itemTitle">
+      </div>
     </td>
     <td>
-      <mat-form-field>
-        <input matInput placeholder="Content" [(ngModel)]="itemContent">
-      </mat-form-field>
+      <div>
+        <input  placeholder="Content" [(ngModel)]="itemContent">
+      </div>
     </td>
     <td>
-      <button mat-raised-button color="primary" (click)="addItem()">Add</button>
+      <button  (click)="addItem()">Add</button>
     </td>
   </tr>
 </table>
-<mat-list *ngFor="let item of items | async">
-  <mat-list-item *ngIf="item.title && item.content">
-    <b>{{item.title}}</b> : {{item.content}} <button mat-mini-fab color="warn" (click)="deleteItem(item.id)" >X</button>
-  </mat-list-item>
-</mat-list>
+<ul *ngFor="let item of items | async">
+  <li *ngIf="item.title && item.content">
+    <b>{{item.title}}</b> : {{item.content}} <button (click)="deleteItem(item.id)" >X</button>
+  </li>
+</ul>

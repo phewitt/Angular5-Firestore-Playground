@@ -1,9 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatButtonModule } from "@angular/material/button";
-import { MatInputModule } from "@angular/material/input";
-import {MatListModule} from '@angular/material/list';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -23,6 +20,7 @@ import { ItemListComponent } from "./components/item-list/item-list.component";
 import { LoginPageComponent } from "./components/login-page/login-page.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
+import { AppNavbarComponent } from './components/app-navbar/app-navbar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +28,8 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
     ItemListComponent,
     LoginPageComponent,
     HomePageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AppNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +38,8 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatInputModule,
-    MatListModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
