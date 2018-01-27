@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project demo is hosted at https://angular5-firestore.firebaseapp.com/home
 
+This project demonstrates Authentication/Hosting/Persistence Via google's firebase. 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
